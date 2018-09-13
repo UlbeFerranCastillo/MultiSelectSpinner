@@ -60,8 +60,15 @@ public class SingleSpinnerSearch extends android.support.v7.widget.AppCompatSpin
 	public SingleSpinnerSearch(Context arg0, AttributeSet arg1, int arg2) {
 		super(arg0, arg1, arg2);
 	}
-
-
+	
+	public void SetDefaultText(String text){
+		this.defaultText = text;
+	}
+	
+	public void SetTitle(String title){
+		this.spinnerTitle = title;
+	}
+	
 	public List<KeyPairBoolData> getSelectedItems() {
 		List<KeyPairBoolData> selectedItems = new ArrayList<>();
 		for(KeyPairBoolData item : items){
