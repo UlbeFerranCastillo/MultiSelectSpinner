@@ -234,12 +234,8 @@ public class SingleSpinnerSearch extends android.support.v7.widget.AppCompatSpin
 			convertView = inflater.inflate(R.layout.item_listview_single, parent, false);
 			holder.textView = (TextView) convertView.findViewById(R.id.alertTextView);
 			convertView.setTag(holder);
-
-			if(position%2==0){
-				convertView.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.list_even));
-			}else{
-				convertView.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.list_odd));
-			}
+			holder.textView.setTextColor(ContextCompat.getColor(getContext(),R.color.text_color));
+			convertView.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.white));
 
 			final KeyPairBoolData data = arrayList.get(position);
 
