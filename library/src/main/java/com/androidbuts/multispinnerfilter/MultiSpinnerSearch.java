@@ -248,11 +248,8 @@ public class MultiSpinnerSearch extends AppCompatSpinner implements OnCancelList
                 holder = (ViewHolder) convertView.getTag();
             }
 
-            final int backgroundColor = (position%2 == 0) ? R.color.list_even : R.color.list_odd;
-            convertView.setBackgroundColor(ContextCompat.getColor(getContext(), backgroundColor));
-
-//            holder.textView.setTextColor(ContextCompat.getColor(getContext(),R.color.text_color));
-//            convertView.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.white));
+            holder.textView.setTextColor(ContextCompat.getColor(getContext(),R.color.text_color));
+            convertView.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.white));
 
             final KeyPairBoolData data = arrayList.get(position);
 
@@ -284,12 +281,11 @@ public class MultiSpinnerSearch extends AppCompatSpinner implements OnCancelList
                 holder.textView.setTypeface(null, Typeface.BOLD);
                 holder.textView.setTextColor(Color.WHITE);
                 convertView.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.list_selected));
+            }else{
+                holder.textView.setTypeface(null, Typeface.NORMAL);
+                holder.textView.setTextColor(ContextCompat.getColor(getContext(),R.color.text_color));
+                convertView.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.white));
             }
-//            else{
-//                holder.textView.setTypeface(null, Typeface.NORMAL);
-//                holder.textView.setTextColor(ContextCompat.getColor(getContext(),R.color.text_color));
-//                convertView.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.white));
-//            }
             holder.checkBox.setTag(holder);
 
             return convertView;
