@@ -26,8 +26,11 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:cacheColorHint="@null"
+            android:divider="@color/colorGreyPrimary"
             android:fadeScrollbars="true"
             android:fastScrollEnabled="true"
+            android:footerDividersEnabled="true"
+            android:headerDividersEnabled="true"
             android:textFilterEnabled="true" />
 
         <TextView
