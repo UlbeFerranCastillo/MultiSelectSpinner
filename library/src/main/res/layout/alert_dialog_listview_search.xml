@@ -28,8 +28,6 @@
             android:cacheColorHint="@null"
             android:fadeScrollbars="true"
             android:fastScrollEnabled="true"
-            android:footerDividersEnabled="true"
-            android:headerDividersEnabled="true"
             android:textFilterEnabled="true" />
 
         <TextView
