@@ -28,6 +28,8 @@ public class SingleSpinner extends android.support.v7.widget.AppCompatSpinner im
 	private List<KeyPairBoolData> items;
 	private String defaultText = "";
 	private String spinnerTitle = "";
+	private String searchText = getContext().getString(R.string.type_to_search);
+	private String nullSearch = getContext().getString(R.string.null_search);
 	private SpinnerListener listener;
 	MyAdapter adapter;
 	public static AlertDialog.Builder builder;
@@ -57,6 +59,21 @@ public class SingleSpinner extends android.support.v7.widget.AppCompatSpinner im
 		super(arg0, arg1, arg2);
 	}
 
+	public void setDefaultText(String text){
+		this.defaultText = text;
+	}
+
+	public void setTitle(String title){
+		this.spinnerTitle = title;
+	}
+
+	public void setHintSearchText(String searchText){
+		this.searchText = searchText;
+	}
+
+	public void setNullSearchText(String nullSearchText){
+		this.nullSearch = nullSearchText;
+	}
 
 	public List<KeyPairBoolData> getSelectedItems() {
 		List<KeyPairBoolData> selectedItems = new ArrayList<>();
@@ -120,9 +137,11 @@ public class SingleSpinner extends android.support.v7.widget.AppCompatSpinner im
 
 		listView.setAdapter(adapter);
 		final TextView emptyText = (TextView) view.findViewById(R.id.empty);
+		emptyText.setText(nullSearch);
 		listView.setEmptyView(emptyText);
 
 		EditText editText = (EditText) view.findViewById(R.id.alertSearchEditText);
+		editText.setHint(searchText);
 		editText.setVisibility(GONE);
 
 		builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
@@ -203,11 +222,9 @@ public class SingleSpinner extends android.support.v7.widget.AppCompatSpinner im
 			holder.textView = (TextView) convertView.findViewById(R.id.alertTextView);
 			convertView.setTag(holder);
 
-			if(position%2==0){
-				convertView.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.list_even));
-			}else{
-				convertView.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.list_odd));
-			}
+			holder.textView.setTextColor(ContextCompat.getColor(getContext(),R.color.text_color));
+			convertView.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.white));
+
 
 			final KeyPairBoolData data = arrayList.get(position);
 

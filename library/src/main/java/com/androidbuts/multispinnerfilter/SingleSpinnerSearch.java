@@ -32,6 +32,8 @@ public class SingleSpinnerSearch extends android.support.v7.widget.AppCompatSpin
 	private List<KeyPairBoolData> items;
 	private String defaultText = "";
 	private String spinnerTitle = "";
+	private String searchText = getContext().getString(R.string.type_to_search);
+	private String nullSearch = getContext().getString(R.string.null_search);
 	private SpinnerListener listener;
 	MyAdapter adapter;
 	public static AlertDialog.Builder builder;
@@ -61,12 +63,20 @@ public class SingleSpinnerSearch extends android.support.v7.widget.AppCompatSpin
 		super(arg0, arg1, arg2);
 	}
 	
-	public void SetDefaultText(String text){
+	public void setDefaultText(String text){
 		this.defaultText = text;
 	}
 	
-	public void SetTitle(String title){
+	public void setTitle(String title){
 		this.spinnerTitle = title;
+	}
+
+	public void setHintSearchText(String searchText){
+		this.searchText = searchText;
+	}
+
+	public void setNullSearchText(String nullSearchText){
+		this.nullSearch = nullSearchText;
 	}
 	
 	public List<KeyPairBoolData> getSelectedItems() {
@@ -137,9 +147,11 @@ public class SingleSpinnerSearch extends android.support.v7.widget.AppCompatSpin
 			}
 		}
 		final TextView emptyText = (TextView) view.findViewById(R.id.empty);
+		emptyText.setText(nullSearch);
 		listView.setEmptyView(emptyText);
 
 		EditText editText = (EditText) view.findViewById(R.id.alertSearchEditText);
+		editText.setHint(searchText);
 		editText.addTextChangedListener(new TextWatcher() {
 
 			@Override

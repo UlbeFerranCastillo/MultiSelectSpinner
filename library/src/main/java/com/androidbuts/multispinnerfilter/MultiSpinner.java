@@ -18,7 +18,7 @@ public class MultiSpinner extends AppCompatSpinner implements OnMultiChoiceClick
 
     private List<String> items;
     private boolean[] selected;
-    private String defaultText = "Select Items";
+    private String defaultText = "";
     private String spinnerTitle = "";
     private MultiSpinnerListener listener;
 
@@ -41,6 +41,14 @@ public class MultiSpinner extends AppCompatSpinner implements OnMultiChoiceClick
 
     public MultiSpinner(Context arg0, AttributeSet arg1, int arg2) {
         super(arg0, arg1, arg2);
+    }
+
+    public void setDefaultText(String text){
+        this.defaultText = text;
+    }
+
+    public void setTitle(String title){
+        this.spinnerTitle = title;
     }
 
     @Override

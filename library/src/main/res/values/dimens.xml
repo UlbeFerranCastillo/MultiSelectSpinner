@@ -4,4 +4,9 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
 
+    <!-- Default Views ToolBar for all views -->
+    <dimen name="width_toolbar_view">1dp</dimen>
+    <dimen name="height_toolbar_view">1dp</dimen>
+
+
 </resources>

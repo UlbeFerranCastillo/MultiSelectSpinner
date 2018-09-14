@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="ColorPrimary">@color/colorWhite</color>
-    <color name="ColorPrimaryDark">@color/colorWhite</color>
+    <color name="colorGreyPrimary">#666666</color>
+    <color name="colorGreyPrimaryDark">#4d4d4d</color>
+    <color name="colorWhite">#ffffff</color>
+    <color name="colorInactive">#f2f2f2</color>
+    <color name="colorMarkLow">#cccccc</color>
+    <color name="colorRed">#ff0000</color>
+    <color name="colorGreen">#00c00c</color>
+    <color name="colorOrange">#f15a24</color>
+    <color name="colorGreenLow">#c5ffc5</color>
+    <color name="colorRedLow">#ff7676</color>
     <color name="android_text_color">@color/colorWhite</color>
     <color name="app_topbar_color">@color/colorWhite</color>
     <color name="background_color">@color/colorWhite</color>

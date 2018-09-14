@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:gravity="center_horizontal"
     android:orientation="vertical">
 
@@ -16,15 +16,23 @@
     </EditText>
 
     <RelativeLayout
+        android:id="@+id/rlListContent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal">
+
+        <View
+            android:id="@+id/viewBelow"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_toolbar_view"
+            android:layout_marginTop="5dp"
+            android:background="@color/colorMarkLow" />
 
         <ListView
             android:id="@+id/alertSearchListView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:layout_below="@+id/viewBelow"
             android:cacheColorHint="@null"
             android:fadeScrollbars="true"
             android:fastScrollEnabled="true"
@@ -43,4 +51,10 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="@color/colorGreyPrimary" />
     </RelativeLayout>
+
+    <View
+        android:id="@+id/viewBelowlist"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_toolbar_view"
+        android:background="@color/colorMarkLow" />
 </LinearLayout>

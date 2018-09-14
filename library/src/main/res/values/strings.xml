@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="type_to_search">@string/type_to_search</string>
+    <string name="type_to_search">Type to Search</string>
+    <string name="null_search">Not found</string>
 
 </resources>

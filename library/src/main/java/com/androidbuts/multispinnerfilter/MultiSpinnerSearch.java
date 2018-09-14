@@ -34,6 +34,8 @@ public class MultiSpinnerSearch extends AppCompatSpinner implements OnCancelList
     private List<KeyPairBoolData> items;
     private String defaultText = "";
     private String spinnerTitle = "";
+    private String searchText = getContext().getString(R.string.type_to_search);
+    private String nullSearch = getContext().getString(R.string.null_search);
     private SpinnerListener listener;
     private int limit = -1;
     private int selected = 0;
@@ -64,6 +66,23 @@ public class MultiSpinnerSearch extends AppCompatSpinner implements OnCancelList
     public MultiSpinnerSearch(Context arg0, AttributeSet arg1, int arg2) {
         super(arg0, arg1, arg2);
     }
+
+    public void setDefaultText(String text){
+        this.defaultText = text;
+    }
+
+    public void setTitle(String title){
+        this.spinnerTitle = title;
+    }
+
+    public void setHintSearchText(String searchText){
+        this.searchText = searchText;
+    }
+
+    public void setNullSearchText(String nullSearchText){
+        this.nullSearch = nullSearchText;
+    }
+
 
     public void setLimit(int limit, LimitExceedListener listener) {
         this.limit = limit;
@@ -136,9 +155,11 @@ public class MultiSpinnerSearch extends AppCompatSpinner implements OnCancelList
         listView.setAdapter(adapter);
 
         final TextView emptyText = (TextView) view.findViewById(R.id.empty);
+        emptyText.setText(nullSearch);
         listView.setEmptyView(emptyText);
 
         final EditText editText = (EditText) view.findViewById(R.id.alertSearchEditText);
+        editText.setHint(searchText);
         editText.addTextChangedListener(new TextWatcher() {
 
             @Override
