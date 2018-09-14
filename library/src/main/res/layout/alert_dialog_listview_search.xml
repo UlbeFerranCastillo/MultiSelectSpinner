@@ -46,6 +46,7 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
             android:gravity="center"
             android:text="@string/null_search"
             android:textAppearance="?android:attr/textAppearanceLarge"

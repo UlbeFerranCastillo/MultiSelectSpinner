@@ -154,7 +154,7 @@ public class SingleSpinnerSearch extends android.support.v7.widget.AppCompatSpin
 		emptyText.setText(nullSearch);
 		listView.setEmptyView(emptyText);
 
-		if(items.isEmpty()){
+		if(listView.getCount() == 0){
             viewBelow.setVisibility(View.GONE);
             viewBelowlist.setVisibility(View.GONE);
         }

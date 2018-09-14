@@ -161,7 +161,7 @@ public class MultiSpinnerSearch extends AppCompatSpinner implements OnCancelList
         emptyText.setText(nullSearch);
         listView.setEmptyView(emptyText);
 
-        if(items.isEmpty()){
+        if(listView.getCount() == 0){
             viewBelow.setVisibility(View.GONE);
             viewBelowlist.setVisibility(View.GONE);
         }
