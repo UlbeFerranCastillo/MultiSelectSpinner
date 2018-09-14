@@ -78,7 +78,7 @@ public class SingleSpinnerSearch extends android.support.v7.widget.AppCompatSpin
 	public void setNullSearchText(String nullSearchText){
 		this.nullSearch = nullSearchText;
 	}
-	
+
 	public List<KeyPairBoolData> getSelectedItems() {
 		List<KeyPairBoolData> selectedItems = new ArrayList<>();
 		for(KeyPairBoolData item : items){
@@ -134,6 +134,9 @@ public class SingleSpinnerSearch extends android.support.v7.widget.AppCompatSpin
 		View view = inflater.inflate(R.layout.alert_dialog_listview_search, null);
 		builder.setView(view);
 
+		final View viewBelow = (View) view.findViewById(R.id.viewBelow);
+        final View viewBelowlist = (View) view.findViewById(R.id.viewBelowlist);
+
 		final ListView listView = (ListView) view.findViewById(R.id.alertSearchListView);
 		listView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
 		listView.setFastScrollEnabled(false);
@@ -146,9 +149,15 @@ public class SingleSpinnerSearch extends android.support.v7.widget.AppCompatSpin
 				break;
 			}
 		}
+
 		final TextView emptyText = (TextView) view.findViewById(R.id.empty);
 		emptyText.setText(nullSearch);
 		listView.setEmptyView(emptyText);
+
+		if(items.isEmpty()){
+            viewBelow.setVisibility(View.GONE);
+            viewBelowlist.setVisibility(View.GONE);
+        }
 
 		EditText editText = (EditText) view.findViewById(R.id.alertSearchEditText);
 		editText.setHint(searchText);

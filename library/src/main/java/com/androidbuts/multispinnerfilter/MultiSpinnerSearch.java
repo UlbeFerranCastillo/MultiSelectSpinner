@@ -148,6 +148,9 @@ public class MultiSpinnerSearch extends AppCompatSpinner implements OnCancelList
         final View view = inflater.inflate(R.layout.alert_dialog_listview_search, null);
         builder.setView(view);
 
+        final View viewBelow = (View) view.findViewById(R.id.viewBelow);
+        final View viewBelowlist = (View) view.findViewById(R.id.viewBelowlist);
+
         final ListView listView = (ListView) view.findViewById(R.id.alertSearchListView);
         listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
         listView.setFastScrollEnabled(false);
@@ -157,6 +160,11 @@ public class MultiSpinnerSearch extends AppCompatSpinner implements OnCancelList
         final TextView emptyText = (TextView) view.findViewById(R.id.empty);
         emptyText.setText(nullSearch);
         listView.setEmptyView(emptyText);
+
+        if(items.isEmpty()){
+            viewBelow.setVisibility(View.GONE);
+            viewBelowlist.setVisibility(View.GONE);
+        }
 
         final EditText editText = (EditText) view.findViewById(R.id.alertSearchEditText);
         editText.setHint(searchText);
