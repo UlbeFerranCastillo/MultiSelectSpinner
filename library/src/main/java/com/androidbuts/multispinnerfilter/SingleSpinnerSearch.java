@@ -276,7 +276,7 @@ public class SingleSpinnerSearch extends android.support.v7.widget.AppCompatSpin
 
 					for (int i = 0; i < len; i++)
 					{
-						for(int j = 0; < items.size();j++)){
+						for(int j = 0;j < items.size();j++)){
 							if(items.get(j).getId() == arrayList.get(i).getId()){
 								items.get(j).setSelected(true);
 							}else{
