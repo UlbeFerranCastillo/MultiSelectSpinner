@@ -273,7 +273,6 @@ public class SingleSpinnerSearch extends android.support.v7.widget.AppCompatSpin
 				public void onClick(View v)
 				{
 					int len = arrayList.size();
-
 					for (int i = 0; i < len; i++)
 					{
 						for(int j = 0;j < items.size();j++)){
