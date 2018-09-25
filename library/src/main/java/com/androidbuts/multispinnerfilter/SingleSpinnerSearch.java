@@ -38,6 +38,7 @@ public class SingleSpinnerSearch extends android.support.v7.widget.AppCompatSpin
 	MyAdapter adapter;
 	public static AlertDialog.Builder builder;
 	public static AlertDialog ad;
+	private List<KeyPairBoolData> selectedItems = new ArrayList<>();
 
 	public SingleSpinnerSearch(Context context) {
 		super(context);
@@ -80,12 +81,16 @@ public class SingleSpinnerSearch extends android.support.v7.widget.AppCompatSpin
 	}
 
 	public List<KeyPairBoolData> getSelectedItems() {
-		List<KeyPairBoolData> selectedItems = new ArrayList<>();
+		selectedItems = new ArrayList<>();
 		for(KeyPairBoolData item : items){
 			if(item.isSelected()){
 				selectedItems.add(item);
 			}
 		}
+		return selectedItems;
+	}
+
+	public List<KeyPairBoolData> getSelectedItem() {
 		return selectedItems;
 	}
 
@@ -270,12 +275,12 @@ public class SingleSpinnerSearch extends android.support.v7.widget.AppCompatSpin
 					int len = arrayList.size();
 					for (int i = 0; i < len; i++)
 					{
-						items.get(i).setSelected(false);
 						arrayList.get(i).setSelected(false);
 						if (i == position)
 						{
-							items.get(i).setSelected(true);
 							arrayList.get(i).setSelected(true);
+							selectedItems.clear();
+							selectedItems.add(arrayList.get(i));
 							Log.i(TAG, "On Click Selected Item : " + arrayList.get(i).getName() + " : " + arrayList.get(i).isSelected());
 						}
 					}
@@ -288,6 +293,10 @@ public class SingleSpinnerSearch extends android.support.v7.widget.AppCompatSpin
 				holder.textView.setTypeface(null, Typeface.BOLD);
 				holder.textView.setTextColor(Color.WHITE);
 				convertView.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.list_selected));
+			}else{
+				holder.textView.setTypeface(null, Typeface.NORMAL);
+				holder.textView.setTextColor(ContextCompat.getColor(getContext(),R.color.text_color));
+				convertView.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.white));
 			}
 			return convertView;
 		}
