@@ -255,7 +255,6 @@ public class SingleSpinnerSearch extends android.support.v7.widget.AppCompatSpin
 
 		@Override
 		public View getView(final int position, View convertView, ViewGroup parent) {
-			Log.i(TAG, "getView() enter");
 			ViewHolder holder = new ViewHolder();
 			convertView = inflater.inflate(R.layout.item_listview_single, parent, false);
 			holder.textView = (TextView) convertView.findViewById(R.id.alertTextView);
@@ -270,32 +269,27 @@ public class SingleSpinnerSearch extends android.support.v7.widget.AppCompatSpin
 
 			convertView.setOnClickListener(new OnClickListener()
 			{
-				public void onClick(View v)
-				{
+				public void onClick(View v) {
 					int len = arrayList.size();
-					for (int i = 0; i < len; i++)
-					{
-						for(int j = 0;j < items.size();j++){
-							if(items.get(j).getId() == arrayList.get(i).getId()){
-								items.get(j).setSelected(true);
-							}else{
-								items.get(j).setSelected(false);
-							}
-						}
+					for (int i = 0; i < len; i++) {
 						arrayList.get(i).setSelected(false);
-						if (i == position)
-						{
+						if (i == position) {
 							arrayList.get(i).setSelected(true);
 							selectedItems.clear();
 							selectedItems.add(arrayList.get(i));
-							Log.i(TAG, "On Click Selected Item : " + arrayList.get(i).getName() + " : " + arrayList.get(i).isSelected());
+							for (int j = 0; j < items.size(); j++) {
+								if (items.get(j).getId() == arrayList.get(i).getId()) {
+									items.get(j).setSelected(true);
+								} else {
+									items.get(j).setSelected(false);
+								}
+							}
 						}
 					}
 					ad.dismiss();
 					SingleSpinnerSearch.this.onCancel(ad);
 				}
 			});
-
 			if(data.isSelected()){
 				holder.textView.setTypeface(null, Typeface.BOLD);
 				holder.textView.setTextColor(Color.WHITE);
